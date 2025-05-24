@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: "C:/Users/Souhaib Hjaiej/eclipse-workspace/gestion_achats"
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: .
+    ports:
+      - "4200:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:

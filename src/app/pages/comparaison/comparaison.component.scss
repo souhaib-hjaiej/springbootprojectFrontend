@@ -1,0 +1,36 @@
+.offres-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px; /* Adds vertical spacing between rows */
+  margin-top: 20px;
+  background-color: #fff;
+}
+
+.offres-table thead th {
+  background-color: #007bff;
+  color: white;
+  padding: 14px;
+  text-align: center;
+  font-size: 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.offres-table tbody td {
+  padding: 14px 16px;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.offres-table tbody tr:hover td {
+  background-color: #eef5ff;
+  transition: background-color 0.3s;
+}
+
+.offres-table tr {
+  border-radius: 8px;
+  overflow: hidden;
+}

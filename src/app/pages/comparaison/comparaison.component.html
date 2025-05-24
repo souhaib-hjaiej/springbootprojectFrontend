@@ -1,0 +1,41 @@
+<div class="comparaison-container">
+  <h2 class="title">Comparer les offres par produit</h2>
+
+  <div class="input-group">
+    <input
+      type="text"
+      placeholder="Nom du produit"
+      [(ngModel)]="produitNom"
+      (keyup.enter)="compareOffres()"
+      class="product-input"
+    />
+    <button (click)="compareOffres()" [disabled]="isLoading" class="compare-button">
+      {{ isLoading ? 'Chargement...' : 'Comparer' }}
+    </button>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <table *ngIf="offres.length > 0" class="offres-table">
+    <thead>
+      <tr>
+        <th>Fournisseur</th>
+        <th>Prix Moyen</th>
+        <th>Délai Moyen</th>
+        <th>Qualité Service</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let offre of offres">
+        <td>{{ offre.fournisseur }}</td>
+        <td>{{ offre.prixMoyen | number:'1.2-2' }} €</td>
+        <td>{{ offre.delaiMoyen }} jours</td>
+        <td>{{ offre.qualiteService }}</td>
+        <td>{{ offre.note }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

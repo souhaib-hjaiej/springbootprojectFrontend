@@ -1,0 +1,52 @@
+<!-- historique-achats.component.html -->
+<div class="container mt-4">
+  <h2>Purchase History</h2>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Supplier</th>
+        <th>Delivery Time (days)</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let historique of historiques">
+        <td>{{historique.produit}}</td>
+        <td>{{historique.quantite}}</td>
+        <td>{{historique.fournisseur.nom}}</td>
+        <td>{{historique.delai_livraison}}</td>
+        <td>
+          <button class="btn btn-sm btn-warning" 
+                  (click)="openUpdateModal(updateModal, historique)">
+            Update Delivery Time
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Update Delivery Time Modal -->
+<ng-template #updateModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Update Delivery Time</h4>
+    <button type="button" class="btn-close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+      <label class="form-label">New Delivery Time (days)</label>
+      <input type="number" 
+             class="form-control" 
+             [(ngModel)]="newDelai" 
+             (ngModelChange)="newDelai = +$event"
+             min="0">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="updateDelai()">Save</button>
+  </div>
+</ng-template>

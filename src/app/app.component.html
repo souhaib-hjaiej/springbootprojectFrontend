@@ -1,49 +1,35 @@
 <mat-sidenav-container class="sidenav-container">
   <!-- <mat-sidenav mode="side" opened class="sidenav"> -->
     <mat-sidenav mode="side" opened class="sidenav">
-      <mat-toolbar color="primary">Maintenance App</mat-toolbar>
+      <mat-toolbar color="primary">gestion des achat</mat-toolbar>
       <mat-nav-list class="p-4">
-        <a mat-list-item routerLink="/dashboard">
-          <mat-icon matListIcon>dashboard</mat-icon>
-          <span class="nav-text mx-2">Dashboard</span>
+        <a mat-list-item routerLink="/fournisseur">
+         <mat-icon matListIcon>store</mat-icon>
+          <span class="nav-text mx-2">fournisseur</span>
         </a>
     
-        <a mat-list-item routerLink="/pannes">
-          <mat-icon matListIcon>report_problem</mat-icon>
-          <span class="nav-text mx-2">Pannes</span>
+        <a mat-list-item routerLink="/achat">
+         <mat-icon matListIcon>shopping_cart</mat-icon>
+          <span class="nav-text mx-2">achat</span>
         </a>
     
-        <a mat-list-item routerLink="/equipements">
-          <mat-icon matListIcon>build</mat-icon>
-          <span class="nav-text mx-2">Équipements</span>
+        <a mat-list-item routerLink="/history">
+           <mat-icon matListIcon>history</mat-icon>
+          <span class="nav-text mx-2">historique achats</span>
         </a>
+
+          <a mat-list-item routerLink="/comparaison-offres">
+            <mat-icon matListIcon>compare</mat-icon>
+          <span class="nav-text mx-2">comparition</span>
+        </a>
+       
+
     
-        <a mat-list-item routerLink="/interventions">
-          <mat-icon matListIcon>handyman</mat-icon>
-          <span class="nav-text mx-2">Interventions</span>
-        </a>
-    
-        <a mat-list-item routerLink="/techniciens">
-          <mat-icon matListIcon>engineering</mat-icon>
-          <span class="nav-text mx-2">Techniciens</span>
-        </a>
-    
-        <a mat-list-item routerLink="/planification">
-          <mat-icon matListIcon>event</mat-icon>
-          <span class="nav-text mx-2">Planification</span>
-        </a>
+        
       </mat-nav-list>
     </mat-sidenav>
     
-    <!-- <mat-nav-list class="p-4">
-      <a mat-list-item href="#">Dashboard</a>
-      <a mat-list-item href="#">Pannes</a>
-      <a mat-list-item href="#">Equipements</a>
-      <a mat-list-item href="#">Interventions</a>
-      <a mat-list-item href="#">Techniciens</a>
-      <a mat-list-item href="#">Planification</a>
-    </mat-nav-list> -->
-  <!-- </mat-sidenav> -->
+    
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">

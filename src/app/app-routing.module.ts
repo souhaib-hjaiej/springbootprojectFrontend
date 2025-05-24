@@ -1,21 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { PannesComponent } from './pages/pannes/pannes.component';
-import { EquipementsComponent } from './pages/equipements/equipements.component';
-import { InterventionsComponent } from './pages/interventions/interventions.component';
-import { TechniciensComponent } from './pages/techniciens/techniciens.component';
-import { PlanificationComponent } from './pages/planification/planification.component';
+import { FournisseursComponent } from './pages/fournisseurs/fournisseurs.component';
+import { CommandeAchatComponent } from './pages/commande-achat/commande-achat.component';
+import { HistoriqueAchatsComponent } from './pages/historique-achats/historique-achats.component';
+import { ComparaisonComponent } from './pages/comparaison/comparaison.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'pannes', component: PannesComponent },
-  { path: 'equipements', component: EquipementsComponent },
-  { path: 'interventions', component: InterventionsComponent },
-  { path: 'techniciens', component: TechniciensComponent },
-  { path: 'planification', component: PlanificationComponent },
-  { path: '**', redirectTo: 'dashboard' }
+  { path: 'fournisseur', component: FournisseursComponent },
+  { path: 'achat', component: CommandeAchatComponent },
+  { path: 'history', component: HistoriqueAchatsComponent },
+  { path: 'comparaison-offres', component: ComparaisonComponent },
+ 
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,65 @@
+<!-- commande-achat.component.html -->
+<div class="container mt-4">
+  <h2>Create Purchase Order</h2>
+  <form [formGroup]="commandeForm" (ngSubmit)="onSubmit()">
+    
+    <!-- Date -->
+    <div class="mb-3">
+      <label class="form-label">Date</label>
+      <input type="datetime-local" class="form-control" formControlName="date">
+    </div>
+    
+    <!-- Status -->
+    <div class="mb-3">
+      <label class="form-label">Status</label>
+      <select class="form-select" formControlName="statut">
+        <option *ngFor="let statut of statuts" [value]="statut">{{statut}}</option>
+      </select>
+    </div>
+    
+    <!-- Supplier -->
+    <div class="mb-3">
+      <label class="form-label">Supplier</label>
+      <select class="form-select" formControlName="fournisseurId">
+        <option value="">Select a supplier</option>
+        <option *ngFor="let fournisseur of fournisseurs" [value]="fournisseur.id">{{fournisseur.nom}}</option>
+      </select>
+    </div>
+    
+    <!-- Order Lines -->
+    <div formArrayName="lignes">
+      <div *ngFor="let ligne of lignes.controls; let i = index" [formGroupName]="i" class="border p-3 mb-3">
+        <h5>Product Line #{{i + 1}}</h5>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <label class="form-label">Product</label>
+            <input type="text" class="form-control" formControlName="produit">
+          </div>
+          
+          <div class="col-md-3">
+            <label class="form-label">Quantity</label>
+            <input type="number" class="form-control" formControlName="quantite">
+          </div>
+          
+          <div class="col-md-3">
+            <label class="form-label">Unit Price</label>
+            <input type="number" step="0.01" class="form-control" formControlName="prix_unitaire">
+          </div>
+          
+          <div class="col-md-2 d-flex align-items-end">
+            <button type="button" class="btn btn-danger" (click)="removeLigne(i)">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Add Line Button -->
+    <div class="mb-3">
+      <button type="button" class="btn btn-secondary" (click)="addLigne()">Add Product Line</button>
+    </div>
+    
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="!commandeForm.valid">Create Order</button>
+  </form>
+</div>
