@@ -12,6 +12,10 @@ import { FournisseurService } from '../../services/fournisseur/fournisseur.servi
 })
 export class FournisseursComponent implements OnInit {
   fournisseurs: Fournisseur[] = [];
+  searchNom = '';
+  searchContact = '';
+  searchNote: number | null = null;
+
   displayedColumns: string[] = ['id', 'nom', 'contact', 'qualite_service', 'note', 'actions'];
   fournisseurForm!: FormGroup;
   isEditMode = false;
@@ -30,6 +34,23 @@ export class FournisseursComponent implements OnInit {
   loadFournisseurs(): void {
     this.fournisseurService.getAll().subscribe(data => this.fournisseurs = data);
   }
+searchFournisseurs(): void {
+  if (this.searchNom) {
+    this.fournisseurService.searchByNom(this.searchNom).subscribe(data => {
+      this.fournisseurs = data;
+    });
+  } else if (this.searchContact) {
+    this.fournisseurService.searchByContact(this.searchContact).subscribe(data => {
+      this.fournisseurs = data;
+    });
+  } else if (this.searchNote !== null) {
+    this.fournisseurService.searchByNote(this.searchNote).subscribe(data => {
+      this.fournisseurs = data;
+    });
+  } else {
+    this.loadFournisseurs(); // fallback to load all
+  }
+}
 
   openModal(content: any, fournisseur?: Fournisseur): void {
     if (fournisseur) {
@@ -86,4 +107,25 @@ export class FournisseursComponent implements OnInit {
       this.loadFournisseurs();
     });
   }
+  searchByNom() {
+  if (!this.searchNom) return;
+  this.fournisseurService.searchByNom(this.searchNom).subscribe((res) => {
+    this.fournisseurs = res;
+  });
+}
+
+searchByContact() {
+  if (!this.searchContact) return;
+  this.fournisseurService.searchByContact(this.searchContact).subscribe((res) => {
+    this.fournisseurs = res;
+  });
+}
+
+searchByNote() {
+  if (this.searchNote == null) return;
+  this.fournisseurService.searchByNote(this.searchNote).subscribe((res) => {
+    this.fournisseurs = res;
+  });
+}
+
 }

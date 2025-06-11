@@ -35,4 +35,18 @@ export class FournisseurService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
+
+
+  searchByNom(nom: string): Observable<Fournisseur[]> {
+  return this.http.get<Fournisseur[]>(`${this.baseUrl}/search/nom/${nom}`);
+}
+
+searchByContact(contact: string): Observable<Fournisseur[]> {
+  return this.http.get<Fournisseur[]>(`${this.baseUrl}/search/contact/${contact}`);
+}
+
+searchByNote(note: number): Observable<Fournisseur[]> {
+  return this.http.get<Fournisseur[]>(`${this.baseUrl}/search/note/${note}`);
+}
+
 }

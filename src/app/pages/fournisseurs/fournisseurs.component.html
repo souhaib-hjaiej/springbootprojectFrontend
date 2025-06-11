@@ -3,7 +3,25 @@
     <h2>Liste des Fournisseurs</h2>
     <button class="btn btn-primary" (click)="openModal(content)">Ajouter Fournisseur</button>
   </div>
+ <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Rechercher par nom" [(ngModel)]="searchNom" name="searchNom">
+    <button class="btn btn-outline-primary" type="button" (click)="searchByNom()">Rechercher</button>
+  </div>
 
+  <!-- Search by Contact -->
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Rechercher par contact" [(ngModel)]="searchContact" name="searchContact">
+    <button class="btn btn-outline-success" type="button" (click)="searchByContact()">Rechercher</button>
+  </div>
+
+  <!-- Search by Note -->
+  <div class="input-group mb-3">
+    <input type="number" class="form-control" placeholder="Rechercher par note (0-10)" [(ngModel)]="searchNote" name="searchNote" min="0" max="10">
+    <button class="btn btn-outline-warning" type="button" (click)="searchByNote()">Rechercher</button>
+  </div>
+  <div class="mb-4">
+  <button class="btn btn-secondary" (click)="loadFournisseurs()">all fournisseur</button>
+</div>
   <table class="table table-striped">
     <thead>
       <tr>
